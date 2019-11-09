@@ -9,7 +9,7 @@ dispatch({ type: null }); // Here we're making a call to dispatch() - this trigg
 
 // Write DOM event listeners here, make them dispatch actions to the Redux store 
 let button = document.getElementById('addCircle');
-button.addEventListener('click', e => {
+button.addEventListener('click', (_e) => {
     dispatch({
         type: 'ADD_CIRCLE',
         radius: Math.floor(Math.random() * 10 + 1) * 10,
