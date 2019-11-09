@@ -1,6 +1,6 @@
 // Render the name tags using React!
 const App = (props) => {
-    console.log('Passed into App(): ', props)
+    // console.log('Passed into App(): ', props)
     let { nameTags } = props;
     const renderAllNameTags = nameTags.map(SingleNameTagHtml)
     return (
@@ -13,7 +13,7 @@ const App = (props) => {
 // const NameTag = null;  
 
 const SingleNameTagHtml = (props) => {
-    console.log('Passed into SingleNameTagHtml(): ', props)
+    // console.log('Passed into SingleNameTagHtml(): ', props)
     return (
         <div className="nametag mx-auto w-50 text-center border m-1">
             <div className="hello bg-primary text-white p-3 h3">Hello, my name is:</div>
