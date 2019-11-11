@@ -1,8 +1,13 @@
 // Render the cards using React!
 const App = (props) => {
     let { cards } = props;
+    const card1 = cards[0]
+    const card2 = cards[1]
     return (
-        <span>cards</span>
+        <span>
+            <img src={`./cards/${card1.value + card1.suit}.png`}></img>
+            <img src={`./cards/${card2.value + card2.suit}.png`}></img>
+        </span>
     )
 }
 
