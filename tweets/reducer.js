@@ -35,23 +35,15 @@ const initialState = [
         retweets: 3,
         replies: 144
     }
-]
-;
+];
 
 const reducer = (state = initialState, action) => {
     // Handle actions here - make sure you don't mutate the state!
-    const { type } = action;
+    const { type, method } = action;
 
-    const reducer = (state = initialState, action) => {
-        // Handle actions here - make sure you don't mutate the state!
-        const { type, method } = action;
-
-        if (type == 'SORT') {
-            return [...state].sort((a, b) => b[method] - a[method]);
-        }
-
-        return state;
+    if (type == 'SORT') {
+        return [...state].sort((a, b) => b[method] - a[method]);
     }
-    
+
     return state;
 }
