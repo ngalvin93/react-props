@@ -1,30 +1,35 @@
 // Render the tweets using React!
 const App = (props) => {
-    console.log('Inside App component: ', props)
     let { tweets } = props;
-    const allUsers = tweets.map(User)
-    const allTweets = tweets.map(Tweet)
+    console.log('Inside App component: ', tweets)
+    // const allUsers = tweets.map(User)
+    const Tweets = tweets.map(Tweet)
     return (
-        <span>{allUsers}{allTweets}</span>
+        <span>{Tweets}</span>
     )
 }
 
 // const Tweet = null;  // CHALLENGE: Write a separate Tweet component for use in the App component
 const Tweet = (props) => {
     console.log('Inside the Tweet component: ', props)
-    const text = props.text
+    let { user, text } = props;
     return (
-        <h3>{text}</h3>
+
+        <div>
+            <User user={ user } />
+            <h3>{text}</h3>
+        </div>
     )
 }
 
 // const User = null;  // CHALLENGE: Write a separate User component for use in the Tweet component
 const User = (props) => {
     console.log('Inside User component: ', props)
-    let username = props.user.username
-    let handle = props.user.handle
-    let profilePic = props.user.profilePic
-    let isVerified = props.user.isVerified
+    // let username = props.user.username
+    // let handle = props.user.handle
+    // let profilePic = props.user.profilePic
+    // let isVerified = props.user.isVerified
+    let { username, handle, profilePic, isVerified } = props.user
 
     return (
         <div className="d-flex align-items-center">
@@ -39,5 +44,8 @@ const User = (props) => {
 }
 
 // const Metrics = null;  // CHALLENGE: Write a separate Metrics component for use in the Tweet component (likes, retweets, replies)
+const Metrics = (props) => {
+    
+}
 
 // BONUS CHALLENGE - Delete your Tweet component code and rewrite the App component so that it uses User and Metrics directly
