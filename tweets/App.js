@@ -12,12 +12,12 @@ const App = (props) => {
 // const Tweet = null;  // CHALLENGE: Write a separate Tweet component for use in the App component
 const Tweet = (props) => {
     console.log('Inside the Tweet component: ', props)
-    let { user, text } = props;
+    let { user, text, likes, retweets, replies } = props;
     return (
-
         <div>
             <User user={ user } />
             <h3>{text}</h3>
+            <Metrics likes={ likes } retweets={ retweets } replies={ replies } />
         </div>
     )
 }
@@ -45,7 +45,15 @@ const User = (props) => {
 
 // const Metrics = null;  // CHALLENGE: Write a separate Metrics component for use in the Tweet component (likes, retweets, replies)
 const Metrics = (props) => {
-    
+    console.log('This is in the Metrics component: ', props)
+    let { likes, replies, retweets } = props
+    return (
+        <div>
+            <p>{likes}</p>
+            <p>{replies}</p>
+            <p>{retweets}</p>
+        </div>
+    )
 }
 
 // BONUS CHALLENGE - Delete your Tweet component code and rewrite the App component so that it uses User and Metrics directly
