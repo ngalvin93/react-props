@@ -12,19 +12,28 @@ const App = (props) => {
 // const Tweet = null;  // CHALLENGE: Write a separate Tweet component for use in the App component
 const Tweet = (props) => {
     console.log('Inside the Tweet component: ', props)
+    // Destructure what we need from the current state
     let { user, text, likes, retweets, replies } = props;
+    // Then distribute what you pulled to the correct components by passing them as objects to the keys ie: likes={ likes }
     return (
         <div>
             <User user={ user } />
             <h3>{ text }</h3>
-            <Metrics likes={ likes } retweets={ retweets } replies={ replies } />
+            <hr/>
+            <Metrics
+                likes={ likes } 
+                retweets={ retweets }
+                replies={ replies }
+            />
         </div>
     )
 }
 
 // const User = null;  // CHALLENGE: Write a separate User component for use in the Tweet component
 const User = (props) => {
+    // Props is the user object from the current state which is passed from <User user={ user } /> in the Tweet component
     console.log('Inside User component: ', props)
+    // Destructure from the user object the data we need ** make sure that we are pulling from props.user **
     let { username, handle, profilePic, isVerified } = props.user
     // Object destructuring takes care of the below
     // let username = props.user.username
@@ -32,6 +41,7 @@ const User = (props) => {
     // let profilePic = props.user.profilePic
     // let isVerified = props.user.isVerified
 
+    // This returns one instance of a user profile within the Tweet component
     return (
         <div className="d-flex align-items-center">
         <img width="50" src={ profilePic } />

@@ -1,6 +1,7 @@
 const { createStore } = Redux;
 const { subscribe, dispatch, getState } = createStore(reducer);
 
+// Redux is subscribed to the DOM and renders App with the current state as a prop in the circlesContainer
 subscribe(() => {
     ReactDOM.render(<App circles={getState()}/>, document.getElementById('circlesContainer'))
 });
