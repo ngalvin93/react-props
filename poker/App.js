@@ -1,25 +1,23 @@
 // Render the cards using React!
 const App = (props) => {
   const { cards } = props
-  const card1 = cards[0]
-  const card2 = cards[1]
+  // console.log('App comp: ',cards)
   return (
-    <span>
-      <img src={`./cards/${card1.value + card1.suit}.png`} />
-      <img src={`./cards/${card2.value + card2.suit}.png`} />
-    </span>
-  )
+    cards.map((card, index) => {
+      return <Card key={index} card={card} />
+    }
+    ))
 }
 
 // CHALLENGE: Write a separate Card component for use in the App component
 // TIP: Use props to pass the suit and number to each Card component
 // const Card = null;
-
-// const Card = props => {
-//     console.log('Card component props: ', props)
-//     const singleCard = {
-//         value: props.value,
-//         suit: props.suit
-//     }
-//     return singleCard
-// }
+const Card = (props) => {
+  // this should render single card
+  const { card } = props
+  // console.log('Props in Card comp: ', card)
+  const src = './cards/' + card.value + card.suit + '.png'
+  return (
+    <span><img src={src} style={{ width: 50 }} /></span>
+  )
+}
